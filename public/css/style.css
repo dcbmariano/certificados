@@ -1,0 +1,27 @@
+/* Style CSS */
+
+*{ margin:0; padding:0; font-family: Arial;  }
+
+header{ background: linear-gradient(90deg, #96c74f 0%,#3fbb96 100%); padding:10px }
+footer{ background: linear-gradient(90deg, #96c74f 0%,#3fbb96 100%); color: #111; padding:20px 10px 20px 10px; font-size: 13px; text-align: center }
+body{ background-image: url('../img/background.jpg');}
+
+
+/* IDs */
+
+#header_top { margin-left:-10px }
+#header_bottom { padding:20px; }
+#content { padding: 40px 10px; }
+
+
+
+/* Class */
+.img_top { margin-top:20px; }
+a.menu_top { color: #054860;  margin-top:20px; }
+.destaque { color:#5fcac1 }
+.formacao { text-align: center; padding-bottom:20px }
+
+.validacao{
+    text-transform:uppercase;
+    color:#777;
+}
