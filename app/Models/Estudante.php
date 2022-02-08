@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Estudante extends Model
 {
     use HasFactory;
+    
+    protected $guarded = []; // necessário para atualizar 
+    
 }

@@ -7,11 +7,12 @@ use App\Models\Certificado;
 use Illuminate\Support\Facades\DB;
 
 class ValidarController extends Controller
-{
-
-    
+{ 
 
     public function index(Request $request){
+
+        $request->validate([ '_answer' => 'required | simple_captcha' ]);
+        
         function formatar($data){
 
             $ano = substr($data, 0, 4);

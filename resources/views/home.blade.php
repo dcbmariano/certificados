@@ -7,7 +7,8 @@
     <div class="container py-5 mb-4 mt-2" id="content">
     
 		<div class="formacao">
-            <span class="destaque">CERTIFICADOS</span>
+            <span class="destaque">CERTIFICADOS <button type="button" class="btn btn-link text-dark p-0 btn-lg" data-bs-toggle="tooltip" data-bs-placement="top" title="CÓDIGO DE SEGURANÇA DE 6 DIGITOS [ABC123]: você pode encontrá-lo no canto inferior do seu certificado. Caso tenha perdido o certificado, clique em 'emitir certificado' e faça uma busca usando seu endereço de e-mail e data de nascimento."><i class="bi bi-question-circle-fill"></i></button>
+        </span>
             <h2><b>Validação de certificados</b></h2>
             <span class="destaque">_____</span>
 		</div>
@@ -33,6 +34,12 @@
                 <div class="col-2">
                     <input type="text" name="code6" class="form-control form-control-lg validacao" size="1" maxlength="1" > 
                 </div> 
+            </div>
+
+            
+            <div class="row mt-4">
+                <div class="col-6 text-muted small text-right pt-1">Prove que não é um robô:</div>
+                <div class="col-6 text-muted">{!!getCaptchaBox()!!}</div>
             </div>
 
             <div class="row mt-4 mx-0">
@@ -78,4 +85,9 @@
     </div>
 </div>
 
+<script>
+    $(()=>{
+        atalhoCertificado();
+    })
+</script>
 @endsection

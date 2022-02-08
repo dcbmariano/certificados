@@ -14,7 +14,7 @@
     <div class="bg-white mb-4 pt-5 pb-4 mx-0">
         <div class="container">
             <h4><strong>Parabéns! Você concluiu o curso "{{$evento->nome}}" com sucesso!</strong></h4>
-            <p class="text-muted"><strong>Preencha os dados a seguir</strong> para que possamos emitir seu certificado. Confira os valores preenchidos duas vezes antes de clicar no botão "Emitir Certificado". Será gerado um arquivo no formato PDF com os exatos valores inseridos nos campos abaixo. Salve o arquivo ou imprima (se desejado). Não é obrigatório validar ou verificar.</p>
+            <p class="text-muted"><strong>Preencha os dados a seguir</strong> para que possamos emitir seu certificado. Confira os valores preenchidos duas vezes antes de clicar no botão "Emitir Certificado". Será gerado um arquivo no formato PDF com os exatos valores inseridos nos campos abaixo. Salve o arquivo ou imprima (se desejado). Não é obrigatório validar ou verificar (essa funcionalidade serve apenas para que universidades ou empregadores possam verificar que o certificado é original).</p>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
     
     <div class="my-5">
         <div class="container">
-            <label class="label label-primary"><span class="badge btn-success">1</span><span class="badge btn-dark">Nome completo:</span></label>
+            <label class="label label-primary" for="nomecompleto"><span class="badge btn-success">1</span><span class="badge btn-dark">Nome completo:</span></label>
              <input type="text" class="form-control form-control-lg" name="nomecompleto" placeholder="Insira como gostaria que seu nome aparecesse no certificado">
         </div>
     </div>
@@ -41,7 +41,7 @@
         <div class="container">
 
             <label class="label label-primary"><span class="badge btn-success">3</span><span class="badge btn-dark">Data de nascimento:</span></label>
-            <input type="text" class="form-control form-control-lg data" name="nascimento" placeholder="Digite apenas os números">
+            <input type="date" class="form-control form-control-lg data" name="nascimento" placeholder="Digite apenas os números">
 
         </div>
     </div>
@@ -49,20 +49,21 @@
     <div class="bg-white my-4 py-5 mx-0">
         <div class="container">
 
-            <label class="label label-primary"><span class="badge btn-success">4</span><span class="badge btn-dark">Formação acadêmica (em curso ou concluído):</span></label><br>
+            <label class="label label-primary mb-3"><span class="badge btn-success">4</span><span class="badge btn-dark">Formação acadêmica (em curso ou concluído):</span></label><br>
 
-            <input style="margin:10px" type="radio" name="formacao" value="Ensino fundamental">Ensino fundamental
+            <input class="form-check-input" type="radio" name="formacao" value="Ensino fundamental"><label class="form-check-label px-3">Ensino fundamental</label>
 
-            <input style="margin:10px" type="radio" name="formacao" value="Ensino medio">Ensino médio
+            <input class="form-check-input" type="radio" name="formacao" value="Ensino medio"><label class="form-check-label px-3">Ensino médio</label>
 
-            <input style="margin:10px" type="radio" name="formacao" value="Ensino superior">Ensino superior
+            <input class="form-check-input" type="radio" name="formacao" value="Ensino superior"><label class="form-check-label px-3">Ensino superior</label>
 
-            <input style="margin:10px" type="radio" name="formacao" value="Mestrado">Mestrado
+            <input class="form-check-input" type="radio" name="formacao" value="Mestrado"><label class="form-check-label px-3">Mestrado</label>
 
-            <input style="margin:10px" type="radio" name="formacao" value="Doutorado">Doutorado
+            <input class="form-check-input"  type="radio" name="formacao" value="Doutorado"><label class="form-check-label px-3">Doutorado</label>
 
-            <input style="margin:10px" type="radio" name="formacao" value="Pos-doutorado">Pós-doutorado
+            <input class="form-check-input" type="radio" name="formacao" value="Pos-doutorado"><label class="form-check-label px-3">Pós-doutorado</label>
 
+            
         </div>
     </div>
 
@@ -106,9 +107,12 @@
 
     <div class="bg-white my-4 py-5 mx-0">
         <div class="container">
-            <label class="label label-primary"><span class="badge btn-success">6</span><span class="badge btn-dark">Prove que você não é um robô clicando na caixa abaixo:</label>
+            <label class="label label-primary"><span class="badge btn-success">6</span><span class="badge btn-dark">Prove que você não é um robô respondendo à seguinte questão:</label>
 
-            <div class="g-recaptcha" data-sitekey="6LeWlqUUAAAAAOQJFx-p0Tl54GGL6VvtAhdbEEv-"></div>
+            <!--<div class="g-recaptcha" data-sitekey="6LeWlqUUAAAAAOQJFx-p0Tl54GGL6VvtAhdbEEv-"></div> -->
+            <div class="row mt-4">
+                {!!getCaptchaBox()!!}
+            </div>
 
             </div>
     </div>
@@ -117,8 +121,16 @@
         <div class="container">
             <label class="label label-primary"><span class="badge btn-success">7</span><span class="badge btn-dark">Concorde com os termos de uso:</span></label><br>
 
-            <p class="small text-muted pt-1"><input type="checkbox" id="termos" name="termos"> Eu li e concordo com os <a href="#" data-bs-toggle="modal" data-bs-target="#termosuso">termos de uso e políticas de privacidade</a> deste site, incluindo: (1) não irei compartilhar o link desta página de geração de certificados com outras pessoas; e (2) não irei gerar certificados para cursos que não completei. Detectada uma eventual fraude, os certificados serão invalidados.</p>
-            </div>
+            <p class="small text-muted pt-2">
+                <div class="form-check form-switch">
+                    <input type="checkbox" id="termos" class="form-check-input" name="termos">
+                
+                    <label class="form-check-label small text-muted" for="termos">
+                        Eu li e concordo com os <a href="#" data-bs-toggle="modal" data-bs-target="#termosuso">termos de uso e políticas de privacidade</a> deste site, incluindo: (1) não irei compartilhar o link desta página de geração de certificados com outras pessoas; e (2) não irei gerar certificados para cursos que não completei. Detectada uma eventual fraude, os certificados serão invalidados.
+                    </label>
+                </div>
+            </p>
+        </div>
     </div>
     
     <div class="container">
@@ -269,12 +281,12 @@
 
 
 
-<script src="/js/mask.js"></script>
+<!-- <script src="/js/mask.js"></script>
 
 <script>
     // cria mascara para emissão de certificados
     $(()=>{ 
         $("input.data").mask("99/99/9999");
     });
-</script>
+</script> -->
 @endsection

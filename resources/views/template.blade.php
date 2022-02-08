@@ -9,12 +9,15 @@
 
   <!-- Bootstrap CSS  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
   <link href="/css/style.css" rel="stylesheet">
+
   <link rel="icon" href="/img/favicon.png">
 
-  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
 <body>
@@ -30,9 +33,6 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link text-light" href="/gerar">Emitir certificado</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="https://www.alfahelix.com.br/editora">Editora</a>
       </li>
 
       @auth
@@ -60,6 +60,9 @@
 
     </ul>
   </header>
+  @if((session('mensagem')))
+    <label class="alert alert-success w-100 text-center mb-0">{{ session('mensagem') }}</label>
+  @endif
 
   <main>
     @yield('conteudo')
@@ -95,7 +98,7 @@
     
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
 
   </footer>
 </body>

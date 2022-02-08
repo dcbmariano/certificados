@@ -82,12 +82,13 @@ class GerarController extends Controller
 
             $travar = 1; 
             foreach($partes_url as $parte){
-                if(($parte == 'alfahelix') or ($parte == 'https://alfahelix') or  ($parte == 'http://alfahelix') or ($parte == 'http://localhost:8000/gerar?id=1bga')){
+                if(($parte == 'alfahelix') or ($parte == 'https://alfahelix') or  ($parte == 'http://alfahelix') or ($parte == 'http://localhost:8000/gerar?id=1bga') or ($parte == 'http://localhost:8000/buscar/meus_certificados')){
                     $travar = 0;
                 }
             }
 
             if($travar == 1){
+                //print_r($_SERVER['HTTP_REFERER']); 
                 echo 'ACESSO NEGADO. Site inválido. Acreditamos que isso foi uma tentativa de invasão. Caso discorde, entre em contato com o administrador.';
                 exit();
             }
@@ -305,7 +306,7 @@ class GerarController extends Controller
 
             $travar = 1; 
             foreach($partes_url as $parte){
-                if(($parte == 'alfahelix') or ($parte == 'https://alfahelix') or  ($parte == 'http://alfahelix') or ($parte == 'http://localhost:8000/validar')){
+                if(($parte == 'alfahelix') or ($parte == 'https://alfahelix') or  ($parte == 'http://alfahelix') or ($parte == 'http://localhost:8000/validar') or ($parte == 'http://localhost:8000/buscar/meus_certificados')){
                     $travar = 0;
                 }
             }
