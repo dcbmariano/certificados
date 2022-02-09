@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <form action="/restrito/deletar" id="deletar_estudante" method="POST">
+        <form action="{{ url('/') }}/restrito/deletar" id="deletar_estudante" method="POST">
             @csrf 
             @method('DELETE')
             <button type="submit" class="btn btn-danger btn-lg">Sim</button>
@@ -23,6 +23,6 @@
     const confirmarDelecaoEstudante = (id_estudante_atual)=>{
       console.log('a');
         $("#estudante_atual").text(id_estudante_atual);
-        $("#deletar_estudante").attr("action", "/restrito/deletar_estudante/"+id_estudante_atual);
+        $("#deletar_estudante").attr("action", "{{ url('/') }}/restrito/deletar_estudante/"+id_estudante_atual);
     }
 </script>

@@ -12,10 +12,10 @@
 @endif 
 
     <main class="form-signin offset-md-4 col-12 col-md-4 py-5">
-    <form method="POST" action="/buscar/meus_certificados">
+    <form method="POST" action="{{ url('/') }}/buscar/meus_certificados">
         @csrf
         <h1 class="h3 mb-3 fw-normal mt-4"><strong>Buscar meus certificados</strong></h1>
-            <p class="text-muted small">Para listar todos os seus certificados, informe seu endereço de e-mail e data de nascimento usados na inscrição. Você pode ainda reemitir certificados usando o <a href="/">código de segurança</a>.</p>
+            <p class="text-muted small">Para listar todos os seus certificados, informe seu endereço de e-mail e data de nascimento usados na inscrição. Você pode ainda reemitir certificados usando o <a href="{{ url('/') }}">código de segurança</a>.</p>
 
         <div class="form-floating">
             <input type="email" name="email" class="form-control" id="email" placeholder="nome@exemplo.com">
@@ -51,7 +51,7 @@
             <div class="d-flex align-items-center">
                 <div class="flex-shrink-0">
                     <a href="#">
-                    <img src="/img/alfa.jpg" width="160px" class="img-thumbnail">
+                    <img src="{{ url('/') }}/img/alfa.jpg" width="160px" class="img-thumbnail">
                     </a>
                 </div>
 

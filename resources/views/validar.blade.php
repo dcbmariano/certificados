@@ -13,7 +13,7 @@
         <p class="text-muted pt-3 pb-5 px-5 text-center">Este certificado foi concedido a <strong>{{$certificado->nome_estudante}}</strong> <br>pela participação no curso <strong>{{$certificado->nome_evento}}</strong> <br>com carga horária de <strong>{{$certificado->carga_horaria}}</strong> <br>concluído no dia <strong class="formatarData">{{$certificado->data_emissao}}</strong>.</p>
 
         <div class="text-center pb-4">
-            <form action="/gerar/segunda_via" method="POST">
+            <form action="{{ url('/') }}/gerar/segunda_via" method="POST">
                 @csrf
                 <input type="hidden" name="codigo_de_seguranca" value="<?php echo base64_encode(strtoupper($codigo_seguranca)); ?>">
                 <input type="submit" name="submit" value="Emitir uma cópia deste certificado" class="btn btn-xl btn-outline-success">

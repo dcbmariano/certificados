@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form method="POST" id="editar_estudante_form" action="/restrito/atualizar_estudante">
+      <form method="POST" id="editar_estudante_form" action="{{ url('/') }}/restrito/atualizar_estudante">
           @csrf
           @method("PUT")
           <div class="mb-3">
@@ -133,7 +133,7 @@
         }).done((d)=>{
 
             // atualiza os valores nos campos
-            $("#editar_estudante_form").attr("action", "/restrito/atualizar_estudante/"+d.id);
+            $("#editar_estudante_form").attr("action", "{{ url('/') }}/restrito/atualizar_estudante/"+d.id);
             $("#editar_tipo_estudante_padrao").attr("value",d.tipo);
             $("#nome_estudante").val(d.nome);
             $("#email").val(d.email);

@@ -13,34 +13,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-  <link href="/css/style.css" rel="stylesheet">
+  <link href="{{ url('/') }}/css/style.css" rel="stylesheet">
 
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="icon" href="{{ url('/') }}/img/favicon.png">
 
-  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="{{ url('/') }}/js/jquery.js"></script>
+
+  <script>var url_base = "http://localhost:8000"; url_base = "https://www.alfahelix.com.br/certificados_gama"</script>
+  
 </head>
 
 <body>
   <header class="navbar navbar-dark d-flex flex-wrap justify-content-center py-3">
 
     <a href="https://www.alfahelix.com.br/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <img src="/img/logo.svg" alt="Certificados Alfahelix">
+      <img src="{{ url('/') }}/img/logo.svg" alt="Certificados Alfahelix">
     </a>
 
     <ul class="nav nav-pills navbar-dark">
       <li class="nav-item active">
-        <a class="nav-link text-light" href="/">Verificar certificado <span class="visually-hidden">(atual)</span></a>
+        <a class="nav-link text-light" href="{{ url('/') }}/">Verificar certificado <span class="visually-hidden">(atual)</span></a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link text-light" href="/gerar">Emitir certificado</a>
+        <a class="nav-link text-light" href="{{ url('/') }}/gerar">Emitir certificado</a>
       </li>
 
       @auth
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name;}}</a>
         <div class="dropdown-menu" aria-labelledby="dropdownId">
-          <a class="dropdown-item" href="/restrito">Área restrita</a>
-          <form action="/logout" method="POST">
+          <a class="dropdown-item" href="{{ url('/') }}/restrito">Área restrita</a>
+          <form action="{{ url('/') }}/logout" method="POST">
             @csrf
             <input type="submit" class="btn btn-danger w-100 mt-2" value="Sair">
           </form>
@@ -50,7 +53,7 @@
 
       @guest
       <li class="nav-item">
-        <a class="nav-link text-light" href="/login">Login</a>
+        <a class="nav-link text-light" href="{{ url('/') }}/login">Login</a>
       </li>
       @endguest
 
@@ -98,7 +101,7 @@
     
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/js/script.js"></script>
 
   </footer>
 </body>

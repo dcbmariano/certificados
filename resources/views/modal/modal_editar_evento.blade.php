@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form method="POST" id="editar_evento_form" action="/restrito/atualizar_evento">
+      <form method="POST" id="editar_evento_form" action="{{ url('/') }}/restrito/atualizar_evento">
           @csrf
           @method("PUT")
             <div class="mb-3">
@@ -63,14 +63,14 @@
         
         // preencher valores do formulário
         $.ajax({
-            url: "/restrito/editar_eventoAjax/"+id_evento_atual_editar
+            url: url_base+"/restrito/editar_eventoAjax/"+id_evento_atual_editar
         }).done((d)=>{
 
             function letraMaiuscula(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
             }
             // atualiza os valores nos campos
-            $("#editar_evento_form").attr("action", "/restrito/atualizar_evento/"+d.id);
+            $("#editar_evento_form").attr("action", "{{ url('/') }}/restrito/atualizar_evento/"+d.id);
             $("#editar_tipo_evento_padrao").text(letraMaiuscula(d.tipo));
             $("#editar_tipo_evento_padrao").attr("value",d.tipo);
             $("#editar_nome_evento").val(d.nome);

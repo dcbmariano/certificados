@@ -18,7 +18,7 @@
         </div>
     </div>
 
-<form method="post" action="/gerar/pdf" onsubmit="validar(this); return false;">
+<form method="post" action="{{ url('/') }}/gerar/pdf" onsubmit="validar(this); return false;">
     @csrf
     <input type="hidden" name="chave_de_seguranca" value="<?php echo base64_encode(strtoupper($evento->codigo_evento));  ?>">
     
@@ -94,7 +94,7 @@
                     <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: pt_BR</script>
                     <script type="IN/FollowCompany" data-id="35716694" data-counter="bottom"></script>
                 </td>
-                <td><a href="https://www.instagram.com/prof.diegomariano/" target="_blank"><img src="img/instagram.png" width="50px"></a>
+                <td><a href="https://www.instagram.com/prof.diegomariano/" target="_blank"><img src="{{ url('/') }}/img/instagram.png" width="50px"></a>
                 </td>
                 <td>
                     <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofessordiegomariano%2F&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=1113800731992155" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
@@ -163,7 +163,7 @@
             <div class="d-flex align-items-center">
                 <div class="flex-shrink-0">
                     <a href="#">
-                    <img src="/img/alfa.jpg" width="160px" class="img-thumbnail">
+                    <img src="{{ url('/') }}/img/alfa.jpg" width="160px" class="img-thumbnail">
                     </a>
                 </div>
 

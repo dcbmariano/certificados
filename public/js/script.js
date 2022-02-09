@@ -60,7 +60,7 @@ const ativarTabelasInterativas = ()=>{
         $('#tabela_eventos').DataTable(
             {
                 language: {
-                    url:"/data/pt_br.json"
+                    url: url_base+"/data/pt_br.json"
                 }
             }
         );
@@ -69,20 +69,20 @@ const ativarTabelasInterativas = ()=>{
         $('#meus_certificados').DataTable(
             {
                 language: {
-                    url:"/data/pt_br.json"
+                    url: url_base+"/data/pt_br.json"
                 }
             }
         );        
 
         $('#tabela_estudantes').DataTable({
             language: {
-                url:"/data/pt_br.json"
+                url:url_base+"/data/pt_br.json"
             },
             processing:true,
             serverSide:true,
             responsive:true,
             "ajax":{
-                'url':"/restrito/estudantesAjax",
+                'url':url_base+"/restrito/estudantesAjax",
             },
             //pageLength:25,
             columns: [
@@ -152,14 +152,18 @@ const atalhoCertificado = ()=>{
 
     // preenche validação de certificado
     const urlParams = new URLSearchParams(window.location.search);
-    const codigo = urlParams.get('id');
-    if(codigo.length == 6){
-        $('[name=code1]').val(codigo[0]);
-        $('[name=code2]').val(codigo[1]);
-        $('[name=code3]').val(codigo[2]);
-        $('[name=code4]').val(codigo[3]);
-        $('[name=code5]').val(codigo[4]);
-        $('[name=code6]').val(codigo[5]);
+    try{
+        const codigo = urlParams.get('id');
+        if(codigo.length == 6){
+            $('[name=code1]').val(codigo[0]);
+            $('[name=code2]').val(codigo[1]);
+            $('[name=code3]').val(codigo[2]);
+            $('[name=code4]').val(codigo[3]);
+            $('[name=code5]').val(codigo[4]);
+            $('[name=code6]').val(codigo[5]);
+        }
+    } catch{
+        let warning = 'Nenhum id especificado';
     }
 
 }
@@ -224,13 +228,13 @@ const listarCertificados = (id) =>{
     tabela = $('#certificados_estudante').DataTable(
         {
             language: {
-                url:"/data/pt_br.json"
+                url:url_base+"/data/pt_br.json"
             },
             processing:true,
             serverSide:true,
             responsive:true,
             "ajax":{
-                'url':"/restrito/listarCertificadosAjax/"+id,
+                'url':url_base+"/restrito/listarCertificadosAjax/"+id,
             },
             columns: [
                 {data:'id_certificado'}, // 0
@@ -262,7 +266,7 @@ const listarCertificados = (id) =>{
                 },                   
                 { // BOTÃO DOWNLOAD
                     "render":(data,type,row)=>{
-                        return '<a class="btn btn-outline-success" href="/?id='+data+'">Download</a>';
+                        return '<a class="btn btn-outline-success" href="'+url_base+'/?id='+data+'">Download</a>';
                     }, "targets":7
                 },                
                 {"className": "dt-center", "targets": [7]}

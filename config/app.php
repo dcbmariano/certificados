@@ -52,6 +52,7 @@ return [
     |
     */
 
+    //'url' => env('APP_URL', 'https://www.alfahelix.com.br/certificados_alfa/public/'),
     'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),

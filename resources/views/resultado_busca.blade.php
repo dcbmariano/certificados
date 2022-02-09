@@ -29,7 +29,7 @@
                         <td><code>{{ $i->codigo_certificado }}</code></td>
                         <td class="text-center">
                         
-                            <form action="/gerar/segunda_via" method="POST">
+                            <form action="{{ url('/') }}/gerar/segunda_via" method="POST">
                                 @csrf
                                 <input type="hidden" name="codigo_de_seguranca" value="<?php echo base64_encode(strtoupper($i->codigo_certificado)); ?>">
                                 <!--<i class="bi bi-file-earmark-arrow-down-fill"></i>-->
@@ -68,7 +68,7 @@
             <div class="d-flex align-items-center">
                 <div class="flex-shrink-0">
                     <a href="#">
-                    <img src="/img/alfa.jpg" width="160px" class="img-thumbnail">
+                    <img src="{{ url('/') }}/img/alfa.jpg" width="160px" class="img-thumbnail">
                     </a>
                 </div>
 

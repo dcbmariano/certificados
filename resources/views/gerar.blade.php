@@ -10,8 +10,8 @@
 
         <p class="text-muted text-center">Gostaria de <mark class="text-success highlight"><strong>emitir a segunda via</strong></mark> de um certificado gerado anteriormente? Há duas formas de fazer isso:</p>
         <p class="text-center pb-4">
-            <a href="/" class="text-center btn btn-primary btn-lg" data-bs-toggle="tooltip" data-bs-placement="top" title="Busca pelo código de segurança de 6 digitos presente em todos os certificados: [ A B C 1 2 3 ]">Busca por código de segurança</a>
-            <a href="/buscar" class="text-center btn btn-success btn-lg" data-bs-toggle="tooltip" data-bs-placement="top" title="Lista todos os certificados registrados para seu e-mail (requer que o usuário informe a data de nascimento registrada durante o cadastro)">Busca por e-mail e data de nascimento</a>
+            <a href="{{ url('/') }}" class="text-center btn btn-primary btn-lg" data-bs-toggle="tooltip" data-bs-placement="top" title="Busca pelo código de segurança de 6 digitos presente em todos os certificados: [ A B C 1 2 3 ]">Busca por código de segurança</a>
+            <a href="{{ url('/') }}/buscar" class="text-center btn btn-success btn-lg" data-bs-toggle="tooltip" data-bs-placement="top" title="Lista todos os certificados registrados para seu e-mail (requer que o usuário informe a data de nascimento registrada durante o cadastro)">Busca por e-mail e data de nascimento</a>
         </p>    
     </div>
 </div>
@@ -29,7 +29,7 @@
             <div class="d-flex align-items-center">
                 <div class="flex-shrink-0">
                     <a href="#">
-                    <img src="/img/alfa.jpg" width="160px" class="img-thumbnail">
+                    <img src="{{ url('/') }}/img/alfa.jpg" width="160px" class="img-thumbnail">
                     </a>
                 </div>
 

@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <form action="/restrito/deletar" id="deletar_evento" method="POST">
+        <form action="{{ url('/') }}/restrito/deletar" id="deletar_evento" method="POST">
             @csrf 
             @method('DELETE')
             <button type="submit" class="btn btn-danger btn-lg">Sim</button>
@@ -22,6 +22,6 @@
 <script>
     const confirmarDelecao = (id_evento_atual)=>{
         $("#evento_atual").text(id_evento_atual);
-        $("#deletar_evento").attr("action", "/restrito/deletar/"+id_evento_atual);
+        $("#deletar_evento").attr("action", "{{ url('/') }}/restrito/deletar/"+id_evento_atual);
     }
 </script>
